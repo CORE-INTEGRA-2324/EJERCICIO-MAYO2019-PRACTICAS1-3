@@ -28,10 +28,17 @@
                 setInputValue(resultado);
             }
 
+            const sqr = () => {
+                let inputValue = getInputValue();
+                let resultado = Math.sqrt(inputValue);
+                setInputValue(resultado);
+            };
+
             const onload = () => {
                 // OPERACIONES UNITARIAS
                 document.getElementById("cuadrado").addEventListener("click", sq);
                 document.getElementById("factorial").addEventListener("click", fact);
+                document.getElementById("raiz").addEventListener("click", sqr);
             }
 
             window.onload = onload ;
@@ -48,6 +55,7 @@
         <div class="operaciones">
             <button id="cuadrado"> x<sup>2</sup></button>
             <button id="factorial"> x! </button>
+            <button id="raiz"> &#8730 x</button>
         </div>
 
     </body>
