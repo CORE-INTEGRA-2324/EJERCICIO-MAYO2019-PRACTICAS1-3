@@ -2,6 +2,20 @@
     <head>
         <title>Calculadora de CORE - INTEGRA</title>
         <meta charset="utf-8">
+        <script type="text/javascript">
+            // OPERACIONES UNITARIAS
+            const sq = () => {
+                let inputValue = Number(document.getElementById("pantalla").value);
+                document.getElementById("pantalla").value = inputValue*inputValue;
+            }
+
+            const onload = () => {
+                // OPERACIONES UNITARIAS
+                document.getElementById("cuadrado").addEventListener("click", powerOf2);
+            }
+
+            window.onload = onload ;
+        </script>
     </head>
     <body>
         <h1>Academia INTEGRA</h1>
@@ -10,5 +24,10 @@
             <label for="pantalla">Número:</label>
             <input type="text" id="pantalla">
         </div>
+
+        <div class="operaciones">
+            <button id="cuadrado"> x<sup>2</sup></button>
+        </div>
+
     </body>
 </html>
