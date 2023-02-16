@@ -60,6 +60,13 @@
                 vaciarInput();
             }
 
+            const eq = () => {
+                acumula(getInputValue());
+                operador = "=";
+                vaciarInput();
+                setInputValue(acumulador);
+            }
+
             const onload = () => {
                 // OPERACIONES UNITARIAS
                 document.getElementById("cuadrado").addEventListener("click", sq);
@@ -68,6 +75,7 @@
 
                 //OPERACIONES BINARIAS
                 document.getElementById("suma").addEventListener("click", add);
+                document.getElementById("igual").addEventListener("click", eq);
             }
 
             window.onload = onload ;
@@ -91,6 +99,7 @@
         <h3 id="info" class="cabecera" title="binarias">Operaciones binarias</h3>
         <div class="operaciones">
             <button id="suma"> + </button>
+            <button id="igual"> = </button>
         </div>
     </body>
 </html>
