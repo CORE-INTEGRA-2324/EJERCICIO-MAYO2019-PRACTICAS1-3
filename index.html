@@ -19,9 +19,19 @@
                 setInputValue(inputValue*inputValue);
             }
 
+            const fact = () => {
+                let inputValue = getInputValue();
+                let resultado = 1;
+                for (let index = inputValue; index > 1; index--) {
+                    resultado *= index;
+                }
+                setInputValue(resultado);
+            }
+
             const onload = () => {
                 // OPERACIONES UNITARIAS
                 document.getElementById("cuadrado").addEventListener("click", sq);
+                document.getElementById("factorial").addEventListener("click", fact);
             }
 
             window.onload = onload ;
@@ -37,6 +47,7 @@
 
         <div class="operaciones">
             <button id="cuadrado"> x<sup>2</sup></button>
+            <button id="factorial"> x! </button>
         </div>
 
     </body>
