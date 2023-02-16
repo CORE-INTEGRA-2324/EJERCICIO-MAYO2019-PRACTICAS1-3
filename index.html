@@ -3,15 +3,25 @@
         <title>Calculadora de CORE - INTEGRA</title>
         <meta charset="utf-8">
         <script type="text/javascript">
+
+            // FUNCIONES ÚTILES PARA LA CALCULADORA
+            const inputValue = () => {
+                return Number(document.getElementById("pantalla").value);
+            };
+
+            const setInputValue = (valor) => {
+                document.getElementById("pantalla").value = valor;
+            }
+
             // OPERACIONES UNITARIAS
             const sq = () => {
-                let inputValue = Number(document.getElementById("pantalla").value);
-                document.getElementById("pantalla").value = inputValue*inputValue;
+                let input = inputValue();
+                setInputValue(input*input);
             }
 
             const onload = () => {
                 // OPERACIONES UNITARIAS
-                document.getElementById("cuadrado").addEventListener("click", powerOf2);
+                document.getElementById("cuadrado").addEventListener("click", sq);
             }
 
             window.onload = onload ;
