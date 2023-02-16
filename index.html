@@ -54,6 +54,9 @@
                     case "-":
                         acumulador -= n;
                         break;
+                    case "*":
+                        acumulador *= n;
+                        break;
                 }
             }
 
@@ -66,6 +69,12 @@
             const sub = () => {
                 acumula(getInputValue());
                 operador = "-";
+                vaciarInput();
+            }
+
+            const mul = () => {
+                acumula(getInputValue());
+                operador = "*";
                 vaciarInput();
             }
 
@@ -85,6 +94,7 @@
                 //OPERACIONES BINARIAS
                 document.getElementById("suma").addEventListener("click", add);
                 document.getElementById("resta").addEventListener("click", sub);
+                document.getElementById("multiplicacion").addEventListener("click", mul);
                 document.getElementById("igual").addEventListener("click", eq);
             }
 
@@ -110,6 +120,7 @@
         <div class="operaciones">
             <button id="suma"> + </button>
             <button id="resta"> - </button>
+            <button id="multiplicacion"> * </button>
             <button id="igual"> = </button>
         </div>
     </body>
