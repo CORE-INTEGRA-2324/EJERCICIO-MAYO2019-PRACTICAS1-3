@@ -5,7 +5,7 @@
         <script type="text/javascript">
 
             // FUNCIONES ÚTILES PARA LA CALCULADORA
-            const inputValue = () => {
+            const getInputValue = () => {
                 return Number(document.getElementById("pantalla").value);
             };
 
@@ -15,8 +15,8 @@
 
             // OPERACIONES UNITARIAS
             const sq = () => {
-                let input = inputValue();
-                setInputValue(input*input);
+                let inputValue = getInputValue();
+                setInputValue(inputValue*inputValue);
             }
 
             const onload = () => {
