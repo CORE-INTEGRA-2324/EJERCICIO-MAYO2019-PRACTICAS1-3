@@ -17,10 +17,33 @@
                 document.getElementById("pantalla").value = "";
             }
 
+            const rellenarInfo = () => {
+                const resultadoInput = getInputValue();
+                let mensaje = "";
+
+                if (Number.isNaN(resultadoInput)) {
+                    mensaje = "ERROR";
+                }
+
+                else {
+                    if (resultadoInput < 100) {
+                        mensaje = "Info: El resultado es menor que 100";
+                    }
+                    else if (resultadoInput <= 200) {
+                        mensaje = "Info: El resultado está entre 100 y 200";
+                    }
+                    else {
+                        mensaje = "Info: El resultado es superior a 200";
+                    }
+                }
+                document.getElementById("info").innerHTML = mensaje;
+            }
+
             // OPERACIONES UNITARIAS
             const sq = () => {
                 let inputValue = getInputValue();
                 setInputValue(inputValue*inputValue);
+                rellenarInfo();
             }
 
             const fact = () => {
@@ -114,10 +137,13 @@
     <body>
         <h1>Academia INTEGRA</h1>
         <h2 class="cabecera">Calculadora de CORE - INTEGRA</h2>
+
         <div id="input_texto">
             <label for="pantalla">Número:</label>
             <input type="text" id="pantalla">
         </div>
+
+        <h2 id="info" class="grande" title="Info sobre el número">Info sobre el número</h2>
 
         <h3 class="cabecera" title="Unitarias">Operaciones unitarias</h3>
         <div class="operaciones">
