@@ -82,13 +82,13 @@
 
             // OPERACIONES OPCIONALES
 
-            let listaAcumulador = "<ul>"
+            let listaValores = "<ul>"
             let cierreListaAcumulador = "</ul>"
 
             const addToList = () => {
                 let inputValue = getInputValue();
-                listaAcumulador += `<li>${inputValue}</li>`;
-                let listaCerrada = listaAcumulador + cierreListaAcumulador;
+                listaValores += `<li>${inputValue}</li>`;
+                let listaCerrada = listaValores + cierreListaAcumulador;
                 document.getElementById("valoresAcumulador").innerHTML = listaCerrada;
             }
 
@@ -96,11 +96,13 @@
                 document.getElementById("valorAcumulado").innerHTML = n;
             }
 
-            const getValoresAcumulados = () => {
-                let vista = "<ul>";
+            const addToListArray = () => {
+                let listaValoresArray = "<ul>"
+                arrayValoresAcumulados.push(getInputValue());
+
                 // Método con bucle for:
                 for(let i = 0; i < arrayValoresAcumulados.length; i++){
-                    vista += `<li>${arrayValoresAcumulados[i]}</li>`;
+                    listaValoresArray += `<li>${arrayValoresAcumulados[i]}</li>`;
                 }
 
                 /* Método con .forEach()
@@ -108,7 +110,7 @@
                     vista += `<li>${elemento}</li>`;
                 });
                 */
-                return vista + cierreListaAcumulador;
+                document.getElementById("valoresAcumuladorArray").innerHTML = listaValoresArray + cierreListaAcumulador;
             }
 
             // OPERACIONES BINARIAS
@@ -216,6 +218,7 @@
 
                 // OPERACIONES OPCIONALES
                 document.getElementById("addValueToList").addEventListener("click", addToList);
+                document.getElementById("addValueToListArray").addEventListener("click", addToListArray);
                 document.getElementById("ocultador").addEventListener("click", ocultarInput);
                 document.getElementById("compararNumeros").addEventListener("click", compararNumeros);
             }
@@ -254,6 +257,7 @@
             <h3 class="cabecera">Elementos opcionales</h3>
             <h4>Valor acumulado: <span id="valorAcumulado">0</span></h4>
             <button id="addValueToList">Añadir a lista</button>
+            <button id="addValueToListArray">Añadir a lista con Array</button>
             <div class="listadoOperaciones">
                 <h4>Listado:</h4>
                 <div id="valoresAcumulador"></div>
