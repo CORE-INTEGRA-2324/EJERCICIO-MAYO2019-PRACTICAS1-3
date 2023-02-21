@@ -2,6 +2,7 @@
     <head>
         <title>Calculadora de CORE - INTEGRA</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
         <script type="text/javascript">
             // FUNCIONES ÚTILES PARA LA CALCULADORA
             let acumulador = 0;
@@ -234,11 +235,17 @@
             <button id="igual"> = </button>
         </div>
 
-        <h3 class="cabecera">Acumulador</h3>
-        <h4>Valor acumulado: <span id="valorAcumulado">0</span></h4>
-        <h4>Listado operaciones:</h4>
-        <div id="valoresAcumulador"></div>
-        <h4>Listado operaciones con Array:</h4>
-        <div id="valoresAcumuladorArray"></div>
+        <div class="opcionales">
+            <h3 class="cabecera">Elementos opcionales</h3>
+            <h4>Valor acumulado: <span id="valorAcumulado">0</span></h4>
+            <div class="listadoOperaciones">
+                <h4>Listado operaciones:</h4>
+                <div id="valoresAcumulador"></div>
+            </div>
+            <div class="listadoOperaciones">
+                <h4>Listado operaciones con Array:</h4>
+                <div id="valoresAcumuladorArray"></div>
+            </div>
+        </div>
     </body>
 </html>
