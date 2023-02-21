@@ -76,13 +76,23 @@
             // OPERACIONES BINARIAS
             let acumulador = 0;
             let operador = "";
+            let listaAcumulador = "<ul>"
+
+            const addAcumulator = (n) => {
+                listaAcumulador += `<li>${n}</li>`;
+                document.getElementById("valoresAcumulador").innerHTML = listaAcumulador;
+            }
 
             const acumula = n => {
                 switch (operador) {
                     case "":
+                        addAcumulator(n);
+                        addAcumulator('=');
                         acumulador = n;
                         break;
                     case "+":
+                        addAcumulator(n);
+                        addAcumulator('+');
                         acumulador += n;
                         break;
                     case "-":
@@ -99,40 +109,40 @@
 
             const add = () => {
                 if(!validNumber()) return;
-                acumula(getInputValue());
                 operador = "+";
+                acumula(getInputValue());
                 vaciarInput();
                 rellenarInfo();
             }
 
             const sub = () => {
                 if(!validNumber()) return;
-                acumula(getInputValue());
                 operador = "-";
+                acumula(getInputValue());
                 vaciarInput();
                 rellenarInfo();
             }
 
             const mul = () => {
                 if(!validNumber()) return;
-                acumula(getInputValue());
                 operador = "*";
+                acumula(getInputValue());
                 vaciarInput();
                 rellenarInfo();
             }
 
             const div = () => {
                 if(!validNumber()) return;
-                acumula(getInputValue());
                 operador = "/";
+                acumula(getInputValue());
                 vaciarInput();
                 rellenarInfo();
             }
 
             const eq = () => {
                 if(!validNumber()) return;
-                acumula(getInputValue());
                 operador = "=";
+                acumula(getInputValue());
                 vaciarInput();
                 setInputValue(acumulador);
                 rellenarInfo();
@@ -176,13 +186,17 @@
             <button id="raiz"> &#8730 x</button>
         </div>
 
-        <h3 id="info" class="cabecera" title="binarias">Operaciones binarias</h3>
+        <h3 class="cabecera" title="binarias">Operaciones binarias</h3>
         <div class="operaciones">
             <button id="suma"> + </button>
             <button id="resta"> - </button>
             <button id="multiplicacion"> * </button>
             <button id="division"> / </button>
             <button id="igual"> = </button>
+        </div>
+
+        <h3 class="cabecera">Acumulador</h3>
+        <div id="valoresAcumulador">
         </div>
     </body>
 </html>
