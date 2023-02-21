@@ -79,7 +79,7 @@
             let listaAcumulador = "<ul>"
             let cierreListaAcumulador = "</ul>"
 
-            const addAcumulator = (n) => {
+            const addToAcumulatorList = (n) => {
                 listaAcumulador += `<li>${n}</li>`;
                 let listaCerrada = listaAcumulador + cierreListaAcumulador;
                 document.getElementById("valoresAcumulador").innerHTML = listaCerrada;
@@ -91,23 +91,23 @@
                         acumulador = n;
                         break;
                     case "+":
-                        addAcumulator(n);
-                        addAcumulator('+');
+                        addToAcumulatorList(n);
+                        addToAcumulatorList('+');
                         acumulador += n;
                         break;
                     case "-":
-                        addAcumulator(n);
-                        addAcumulator('-');
+                        addToAcumulatorList(n);
+                        addToAcumulatorList('-');
                         acumulador -= n;
                         break;
                     case "*":
-                        addAcumulator(n);
-                        addAcumulator('*');
+                        addToAcumulatorList(n);
+                        addToAcumulatorList('*');
                         acumulador *= n;
                         break;
                     case "/":
-                        addAcumulator(n);
-                        addAcumulator('/');
+                        addToAcumulatorList(n);
+                        addToAcumulatorList('/');
                         acumulador /= n;
                         break;
                 }
