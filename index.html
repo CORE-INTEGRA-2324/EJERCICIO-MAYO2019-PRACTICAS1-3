@@ -85,12 +85,11 @@
             let listaAcumulador = "<ul>"
             let cierreListaAcumulador = "</ul>"
 
-            const addToAcumulatorList = (n) => {
-                arrayValoresAcumulados.push(n);
-                listaAcumulador += `<li>${n}</li>`;
+            const addToList = () => {
+                let inputValue = getInputValue();
+                listaAcumulador += `<li>${inputValue}</li>`;
                 let listaCerrada = listaAcumulador + cierreListaAcumulador;
                 document.getElementById("valoresAcumulador").innerHTML = listaCerrada;
-                document.getElementById("valoresAcumuladorArray").innerHTML = getValoresAcumulados();
             }
 
             const addValorAcumulado = (n) => {
@@ -118,32 +117,18 @@
                 switch (operador) {
                     case "":
                         acumulador = n;
-                        addToAcumulatorList('Inicio:');
-                        addToAcumulatorList(acumulador);
                         break;
                     case "+":
-                        addToAcumulatorList('+');
-                        addToAcumulatorList(n);
                         acumulador += n;
-                        addValorAcumulado(acumulador);
                         break;
                     case "-":
-                        addToAcumulatorList('-');
-                        addToAcumulatorList(n);
                         acumulador -= n;
-                        addValorAcumulado(acumulador);
                         break;
                     case "*":
-                        addToAcumulatorList('*');
-                        addToAcumulatorList(n);
                         acumulador *= n;
-                        addValorAcumulado(acumulador);
                         break;
                     case "/":
-                        addToAcumulatorList('/');
-                        addToAcumulatorList(n);
                         acumulador /= n;
-                        addValorAcumulado(acumulador);
                         break;
                 }
             }
@@ -230,6 +215,7 @@
                 document.getElementById("input_texto").addEventListener("click", vaciarInput);
 
                 // OPERACIONES OPCIONALES
+                document.getElementById("addValueToList").addEventListener("click", addToList);
                 document.getElementById("ocultador").addEventListener("click", ocultarInput);
                 document.getElementById("compararNumeros").addEventListener("click", compararNumeros);
             }
@@ -267,12 +253,13 @@
         <div class="opcionales">
             <h3 class="cabecera">Elementos opcionales</h3>
             <h4>Valor acumulado: <span id="valorAcumulado">0</span></h4>
+            <button id="addValueToList">Añadir a lista</button>
             <div class="listadoOperaciones">
-                <h4>Listado operaciones:</h4>
+                <h4>Listado:</h4>
                 <div id="valoresAcumulador"></div>
             </div>
             <div class="listadoOperaciones">
-                <h4>Listado operaciones con Array:</h4>
+                <h4>Listado con Array:</h4>
                 <div id="valoresAcumuladorArray"></div>
             </div>
             <h4>Botón ocultador</h4>
