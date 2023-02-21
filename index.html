@@ -6,6 +6,7 @@
             // FUNCIONES ÚTILES PARA LA CALCULADORA
             let acumulador = 0;
             let operador = "";
+            let arrayValoresAcumulados = [];
 
             const getInputValue = () => {
                 return Number(document.getElementById("pantalla").value);
@@ -84,13 +85,30 @@
             let cierreListaAcumulador = "</ul>"
 
             const addToAcumulatorList = (n) => {
+                arrayValoresAcumulados.push(n);
                 listaAcumulador += `<li>${n}</li>`;
                 let listaCerrada = listaAcumulador + cierreListaAcumulador;
                 document.getElementById("valoresAcumulador").innerHTML = listaCerrada;
+                document.getElementById("valoresAcumuladorArray").innerHTML = getValoresAcumulados();
             }
 
             const addValorAcumulado = (n) => {
                 document.getElementById("valorAcumulado").innerHTML = n;
+            }
+
+            const getValoresAcumulados = () => {
+                let vista = "<ul>";
+                // Método con bucle for:
+                for(let i = 0; i < arrayValoresAcumulados.length; i++){
+                    vista += `<li>${arrayValoresAcumulados[i]}</li>`;
+                }
+
+                /* Método con .forEach()
+                arrayValoresAcumulados.forEach((elemento) => {
+                    vista += `<li>${elemento}</li>`;
+                });
+                */
+                return vista + cierreListaAcumulador;
             }
 
             // OPERACIONES BINARIAS
@@ -218,7 +236,9 @@
 
         <h3 class="cabecera">Acumulador</h3>
         <h4>Valor acumulado: <span id="valorAcumulado">0</span></h4>
-        <div id="valoresAcumulador">
-        </div>
+        <h4>Listado operaciones:</h4>
+        <div id="valoresAcumulador"></div>
+        <h4>Listado operaciones con Array:</h4>
+        <div id="valoresAcumuladorArray"></div>
     </body>
 </html>
