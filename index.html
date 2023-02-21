@@ -48,20 +48,14 @@
 
             // OPERACIONES UNITARIAS
             const sq = () => {
-                if(!validNumber()) {
-                    return;
-                }
-
+                if(!validNumber()) return;
                 let inputValue = getInputValue();
                 setInputValue(inputValue*inputValue);
                 rellenarInfo();
             }
 
             const fact = () => {
-                if(!validNumber()) {
-                    return;
-                }
-
+                if(!validNumber()) return;
                 let inputValue = getInputValue();
                 let resultado = 1;
                 for (let index = inputValue; index > 1; index--) {
@@ -72,10 +66,7 @@
             }
 
             const sqr = () => {
-                if(!validNumber()) {
-                    return;
-                }
-
+                if(!validNumber()) return;
                 let inputValue = getInputValue();
                 let resultado = Math.sqrt(inputValue);
                 setInputValue(resultado);
@@ -107,6 +98,7 @@
             }
 
             const add = () => {
+                if(!validNumber()) return;
                 acumula(getInputValue());
                 operador = "+";
                 vaciarInput();
@@ -114,6 +106,7 @@
             }
 
             const sub = () => {
+                if(!validNumber()) return;
                 acumula(getInputValue());
                 operador = "-";
                 vaciarInput();
@@ -121,6 +114,7 @@
             }
 
             const mul = () => {
+                if(!validNumber()) return;
                 acumula(getInputValue());
                 operador = "*";
                 vaciarInput();
@@ -128,6 +122,7 @@
             }
 
             const div = () => {
+                if(!validNumber()) return;
                 acumula(getInputValue());
                 operador = "/";
                 vaciarInput();
@@ -135,6 +130,7 @@
             }
 
             const eq = () => {
+                if(!validNumber()) return;
                 acumula(getInputValue());
                 operador = "=";
                 vaciarInput();
