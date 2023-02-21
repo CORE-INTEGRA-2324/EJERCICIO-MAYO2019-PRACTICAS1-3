@@ -85,71 +85,80 @@
                 document.getElementById("valoresAcumulador").innerHTML = listaCerrada;
             }
 
+            const addValorAcumulado = (n) => {
+                document.getElementById("valorAcumulado").innerHTML = n;
+            }
+
             const acumula = n => {
                 switch (operador) {
                     case "":
                         acumulador = n;
+                        addToAcumulatorList('Resultado:');
+                        addToAcumulatorList(n);
                         break;
                     case "+":
-                        addToAcumulatorList(n);
                         addToAcumulatorList('+');
+                        addToAcumulatorList(n);
                         acumulador += n;
+                        addValorAcumulado(acumulador);
                         break;
                     case "-":
-                        addToAcumulatorList(n);
                         addToAcumulatorList('-');
+                        addToAcumulatorList(n);
                         acumulador -= n;
+                        addValorAcumulado(acumulador);
                         break;
                     case "*":
-                        addToAcumulatorList(n);
                         addToAcumulatorList('*');
+                        addToAcumulatorList(n);
                         acumulador *= n;
+                        addValorAcumulado(acumulador);
                         break;
                     case "/":
-                        addToAcumulatorList(n);
                         addToAcumulatorList('/');
+                        addToAcumulatorList(n);
                         acumulador /= n;
+                        addValorAcumulado(acumulador);
                         break;
                 }
             }
 
             const add = () => {
                 if(!validNumber()) return;
-                operador = "+";
                 acumula(getInputValue());
+                operador = "+";
                 vaciarInput();
                 rellenarInfo();
             }
 
             const sub = () => {
                 if(!validNumber()) return;
-                operador = "-";
                 acumula(getInputValue());
+                operador = "-";
                 vaciarInput();
                 rellenarInfo();
             }
 
             const mul = () => {
                 if(!validNumber()) return;
-                operador = "*";
                 acumula(getInputValue());
+                operador = "*";
                 vaciarInput();
                 rellenarInfo();
             }
-
+            
             const div = () => {
                 if(!validNumber()) return;
-                operador = "/";
                 acumula(getInputValue());
+                operador = "/";
                 vaciarInput();
                 rellenarInfo();
             }
 
             const eq = () => {
                 if(!validNumber()) return;
-                operador = "=";
                 acumula(getInputValue());
-                vaciarInput();
+                operador = "";
                 setInputValue(acumulador);
                 rellenarInfo();
             }
@@ -202,6 +211,7 @@
         </div>
 
         <h3 class="cabecera">Acumulador</h3>
+        <h4>Valor acumulado: <span id="valorAcumulado">0</span></h4>
         <div id="valoresAcumulador">
         </div>
     </body>
