@@ -188,6 +188,17 @@
                 rellenarInfo();
             }
 
+            let contadorClicks = 0;
+            const ocultarInput = () => {
+                contadorClicks++;
+                document.getElementById("contadorClicks").innerHTML = contadorClicks;
+
+                if(contadorClicks == 3){
+                    contadorClicks = 0;
+                    document.getElementById("input_texto").style.display = "none";
+                }
+            };
+
             const onload = () => {
                 // OPERACIONES UNITARIAS
                 document.getElementById("cuadrado").addEventListener("click", sq);
@@ -203,6 +214,9 @@
 
                 // MANEJO DE PULSACIÓN AL INPUT
                 document.getElementById("input_texto").addEventListener("click", vaciarInput);
+
+                // OPERACIONES OPCIONALES
+                document.getElementById("ocultador").addEventListener("click", ocultarInput);
             }
 
             window.onload = onload ;
@@ -246,6 +260,9 @@
                 <h4>Listado operaciones con Array:</h4>
                 <div id="valoresAcumuladorArray"></div>
             </div>
+            <h4>Botón ocultador</h4>
+            <p>Número de clicks: <span id="contadorClicks">0</span></p>
+            <button id="ocultador">Púlsame 3 veces y ocultaré cosis</button>
         </div>
     </body>
 </html>
