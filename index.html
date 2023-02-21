@@ -199,6 +199,20 @@
                 }
             };
 
+            const compararNumeros = () => {
+                let resultado = "";
+                let getValueInputAComparar = Number(document.getElementById("numeroAComparar").value);
+                let valorInput = getInputValue();
+
+                if (getValueInputAComparar >= valorInput) {
+                    resultado = "Mayor o igual que el input."
+                }
+                else {
+                    resultado = "Menor que el input."
+                }
+                document.getElementById("resultadoComparacion").innerHTML = resultado;
+            };
+
             const onload = () => {
                 // OPERACIONES UNITARIAS
                 document.getElementById("cuadrado").addEventListener("click", sq);
@@ -217,6 +231,7 @@
 
                 // OPERACIONES OPCIONALES
                 document.getElementById("ocultador").addEventListener("click", ocultarInput);
+                document.getElementById("compararNumeros").addEventListener("click", compararNumeros);
             }
 
             window.onload = onload ;
@@ -263,6 +278,13 @@
             <h4>Botón ocultador</h4>
             <p>Número de clicks: <span id="contadorClicks">0</span></p>
             <button id="ocultador">Púlsame 3 veces y ocultaré cosis</button>
+            <h4>Input comparador:</h4>
+            <div>
+                <label for="pantalla">Número a comparar con input:</label>
+                <input type="text" id="numeroAComparar">
+                <button id="compararNumeros">Compara!</button>
+                <p>Este número es: <span id="resultadoComparacion"></span></p>
+            </div>
         </div>
     </body>
 </html>
