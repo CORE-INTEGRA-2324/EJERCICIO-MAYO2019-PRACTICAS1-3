@@ -86,8 +86,6 @@
             const acumula = n => {
                 switch (operador) {
                     case "":
-                        addAcumulator(n);
-                        addAcumulator('=');
                         acumulador = n;
                         break;
                     case "+":
@@ -96,12 +94,18 @@
                         acumulador += n;
                         break;
                     case "-":
+                        addAcumulator(n);
+                        addAcumulator('-');
                         acumulador -= n;
                         break;
                     case "*":
+                        addAcumulator(n);
+                        addAcumulator('*');
                         acumulador *= n;
                         break;
                     case "/":
+                        addAcumulator(n);
+                        addAcumulator('/');
                         acumulador /= n;
                         break;
                 }
