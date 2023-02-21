@@ -77,10 +77,12 @@
             let acumulador = 0;
             let operador = "";
             let listaAcumulador = "<ul>"
+            let cierreListaAcumulador = "</ul>"
 
             const addAcumulator = (n) => {
                 listaAcumulador += `<li>${n}</li>`;
-                document.getElementById("valoresAcumulador").innerHTML = listaAcumulador;
+                let listaCerrada = listaAcumulador + cierreListaAcumulador;
+                document.getElementById("valoresAcumulador").innerHTML = listaCerrada;
             }
 
             const acumula = n => {
