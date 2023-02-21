@@ -16,6 +16,14 @@
                 document.getElementById("pantalla").value = "";
             }
 
+            const validNumber = () => {
+                if ( Number.isNaN(getInputValue()) ) {
+                    setInputValue("Error");
+                    return false;
+                }
+                return true;
+            }
+
             const rellenarInfo = () => {
                 const resultadoInput = getInputValue();
                 let mensaje = "";
@@ -40,12 +48,20 @@
 
             // OPERACIONES UNITARIAS
             const sq = () => {
+                if(!validNumber()) {
+                    return;
+                }
+
                 let inputValue = getInputValue();
                 setInputValue(inputValue*inputValue);
                 rellenarInfo();
             }
 
             const fact = () => {
+                if(!validNumber()) {
+                    return;
+                }
+
                 let inputValue = getInputValue();
                 let resultado = 1;
                 for (let index = inputValue; index > 1; index--) {
@@ -56,6 +72,10 @@
             }
 
             const sqr = () => {
+                if(!validNumber()) {
+                    return;
+                }
+
                 let inputValue = getInputValue();
                 let resultado = Math.sqrt(inputValue);
                 setInputValue(resultado);
