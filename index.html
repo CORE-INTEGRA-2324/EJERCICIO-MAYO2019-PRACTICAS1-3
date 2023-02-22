@@ -200,6 +200,10 @@
                 document.getElementById("resultadoComparacion").innerHTML = resultado;
             };
 
+            const insertar = (s) => {
+                setInputValue(getInputValue() + s);
+            };
+
             const onload = () => {
                 // OPERACIONES UNITARIAS
                 document.getElementById("cuadrado").addEventListener("click", sq);
@@ -233,21 +237,22 @@
         <div id="input_texto">
             <label for="pantalla">Número:</label>
             <input type="text" id="pantalla">
-            <div id="tecladoMatricial">
-                <h4>Teclado Matricial</h4>
-                <div id="teclas">
-                    <button onclick="">1</button>
-                    <button onclick="">2</button>
-                    <button onclick="">3</button>
-                    <button onclick="">4</button>
-                    <button onclick="">5</button>
-                    <button onclick="">6</button>
-                    <button onclick="">7</button>
-                    <button onclick="">8</button>
-                    <button onclick="">9</button>
-                    <button onclick="">.</button>
-                    <button onclick="">C</button>
-                </div>
+        </div>
+
+        <div id="tecladoMatricial">
+            <h4>Teclado Matricial</h4>
+            <div id="teclas">
+                <button onclick="insertar('1')">1</button>
+                <button onclick="insertar('2')">2</button>
+                <button onclick="insertar('3')">3</button>
+                <button onclick="insertar('4')">4</button>
+                <button onclick="insertar('5')">5</button>
+                <button onclick="insertar('6')">6</button>
+                <button onclick="insertar('7')">7</button>
+                <button onclick="insertar('8')">8</button>
+                <button onclick="insertar('9')">9</button>
+                <button onclick="insertar('.')">.</button>
+                <button onclick="vaciarInput()">C</button>
             </div>
         </div>
 
