@@ -24,3 +24,12 @@ body {
     margin: 8px;
     width: 800px;
 }
+
+#teclas{
+    display: flex;
+    border: 3px solid orange;
+    padding: 8px;
+    width: 80px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
