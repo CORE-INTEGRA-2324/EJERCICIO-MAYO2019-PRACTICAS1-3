@@ -206,11 +206,24 @@
                 setInputValue(getInputValue().toString() + s);
             };
 
+            const log = () => {
+                if(!validNumber()) return;
+                let inputValue = Number(document.getElementById("pantalla").value);
+                let logOfValue = Math.log(inputValue);
+                let textoResultado = document.getElementById("resultadoLn");
+                textoResultado.innerHTML = logOfValue;
+
+                let subtituloLn = document.getElementById("subtituloLn");
+                subtituloLn.style.color = "green";
+                subtituloLn.style.backgroundColor = "lightyellow";
+            };
+
             const onload = () => {
                 // OPERACIONES UNITARIAS
                 document.getElementById("cuadrado").addEventListener("click", sq);
                 document.getElementById("factorial").addEventListener("click", fact);
                 document.getElementById("raiz").addEventListener("click", sqr);
+                document.getElementById("logaritmo").addEventListener("click", log);
 
                 //OPERACIONES BINARIAS
                 document.getElementById("suma").addEventListener("click", add);
@@ -241,6 +254,17 @@
             <label for="pantalla">Número:</label>
             <input type="text" id="pantalla">
         </div>
+
+        <h3 class="cabecera" title="Unitarias">Operaciones unitarias</h3>
+        <div class="operaciones">
+            <button id="cuadrado"> x<sup>2</sup></button>
+            <button id="factorial"> x! </button>
+            <button id="raiz"> &#8730 x</button>
+            <button id="logaritmo">ln(x)</button>
+        </div>
+
+        <h4 id="subtituloLn">El resultado del ln(x) es igual a:<span id="resultadoLn"></span></h4>
+
         <h4>Input comparador:</h4>
         <div>
             <label for="pantalla">Número a comparar con input:</label>
@@ -268,13 +292,6 @@
         </div>
         
         <h2 id="info" class="grande" title="Info sobre el número">Info sobre el número</h2>
-
-        <h3 class="cabecera" title="Unitarias">Operaciones unitarias</h3>
-        <div class="operaciones">
-            <button id="cuadrado"> x<sup>2</sup></button>
-            <button id="factorial"> x! </button>
-            <button id="raiz"> &#8730 x</button>
-        </div>
 
         <h3 class="cabecera" title="binarias">Operaciones binarias</h3>
         <div class="operaciones">
