@@ -67,6 +67,7 @@
                 let resultado = 1;
                 for (let index = inputValue; index > 1; index--) {
                     resultado *= index;
+                    // resultado = resultado * index;
                 }
                 setInputValue(resultado);
                 rellenarInfo();
@@ -119,6 +120,7 @@
                 switch (operador) {
                     case "":
                         acumulador = n;
+                        addValorAcumulado(acumulador);
                         break;
                     case "+":
                         acumulador += n;
@@ -201,7 +203,7 @@
             };
 
             const insertar = (s) => {
-                setInputValue(getInputValue() + s);
+                setInputValue(getInputValue().toString() + s);
             };
 
             const onload = () => {
@@ -225,6 +227,7 @@
                 document.getElementById("addValueToListArray").addEventListener("click", addToListArray);
                 document.getElementById("ocultador").addEventListener("click", ocultarInput);
                 document.getElementById("compararNumeros").addEventListener("click", compararNumeros);
+                document.getElementById("cien").addEventListener("click", () => { insertar(100); });
             }
 
             window.onload = onload ;
@@ -237,6 +240,13 @@
         <div id="input_texto">
             <label for="pantalla">Número:</label>
             <input type="text" id="pantalla">
+        </div>
+        <h4>Input comparador:</h4>
+        <div>
+            <label for="pantalla">Número a comparar con input:</label>
+            <input type="text" id="numeroAComparar">
+            <button id="compararNumeros">Compara!</button>
+            <p>Este número es: <span id="resultadoComparacion"></span></p>
         </div>
 
         <div id="tecladoMatricial">
@@ -253,9 +263,10 @@
                 <button onclick="insertar('9')">9</button>
                 <button onclick="insertar('.')">.</button>
                 <button onclick="vaciarInput()">C</button>
+                <button id="cien">100</button>
             </div>
         </div>
-
+        
         <h2 id="info" class="grande" title="Info sobre el número">Info sobre el número</h2>
 
         <h3 class="cabecera" title="Unitarias">Operaciones unitarias</h3>
@@ -290,13 +301,6 @@
             <h4>Botón ocultador</h4>
             <p>Número de clicks: <span id="contadorClicks">0</span></p>
             <button id="ocultador">Púlsame 3 veces y ocultaré cosis</button>
-            <h4>Input comparador:</h4>
-            <div>
-                <label for="pantalla">Número a comparar con input:</label>
-                <input type="text" id="numeroAComparar">
-                <button id="compararNumeros">Compara!</button>
-                <p>Este número es: <span id="resultadoComparacion"></span></p>
-            </div>
         </div>
     </body>
 </html>
