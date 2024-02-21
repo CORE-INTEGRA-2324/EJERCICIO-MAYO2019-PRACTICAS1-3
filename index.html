@@ -222,6 +222,11 @@
                 document.getElementById("pantalla").value = 0;
             };
 
+            const clearAll = () => {
+                clearScreen();
+                acumulador = 0;
+            };
+
             const onload = () => {
                 // OPERACIONES UNITARIAS
                 document.getElementById("cuadrado").addEventListener("click", sq);
