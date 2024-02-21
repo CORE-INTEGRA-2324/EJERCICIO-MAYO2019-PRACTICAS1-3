@@ -218,6 +218,10 @@
                 subtituloLn.style.backgroundColor = "lightyellow";
             };
 
+            const clearScreen = () => {
+                document.getElementById("pantalla").value = 0;
+            };
+
             const onload = () => {
                 // OPERACIONES UNITARIAS
                 document.getElementById("cuadrado").addEventListener("click", sq);
@@ -233,7 +237,9 @@
                 document.getElementById("igual").addEventListener("click", eq);
 
                 //LIMPIEZA
-                document.getElementById("clearScreen").addEventListener("click", vaciarInput);
+                document.getElementById("clearScreen").addEventListener("click", clearScreen);
+                document.getElementById("clearAll").addEventListener("click", vaciarInput);
+
 
                 // MANEJO DE PULSACIÓN AL INPUT
                 document.getElementById("input_texto").addEventListener("click", vaciarInput);
