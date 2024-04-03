@@ -8,6 +8,7 @@
             let acumulador = 0;
             let operador = "";
             let arrayValoresAcumulados = [];
+            let modoLite = true;
 
             const getInputValue = () => {
                 return Number(document.getElementById("pantalla").value);
@@ -255,6 +256,11 @@
                 document.getElementById("ocultador").addEventListener("click", ocultarInput);
                 document.getElementById("compararNumeros").addEventListener("click", compararNumeros);
                 document.getElementById("cien").addEventListener("click", () => { insertar(100); });
+
+                // Modo Lite
+                if(modoLite){
+                    document.getElementById("modoLiteTitle").innerHTML = "Modo Lite";
+                }
             }
 
             window.onload = onload ;
@@ -341,6 +347,8 @@
         </div>
 
         <h2>Ejercicios Práctica 3 - Calculadora JS</h2>
+
+        <h3>Interface en estado: <span id="modoLiteTitle"></span></h3>
 
         <div class="operaciones">
             <button id="cuadrado"> x<sup>2</sup></button>
