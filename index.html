@@ -231,7 +231,16 @@
             //Modo Lite
 
             const cambiaModo = () => {
-                console.log("cambio modo!");
+                modoLite = !modoLite;
+
+                let contenedorOcultable = document.getElementById("vistaFull");
+
+                if(contenedorOcultable.style.display === "none"){
+                    contenedorOcultable.style.display = null;
+                }
+                else{
+                    contenedorOcultable.style.display = "none";
+                }
             };
 
             const onload = () => {
