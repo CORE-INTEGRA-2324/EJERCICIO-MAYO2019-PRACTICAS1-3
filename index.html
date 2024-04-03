@@ -228,6 +228,12 @@
                 acumulador = 0;
             };
 
+            //Modo Lite
+
+            const cambiaModo = () => {
+                console.log("cambio modo!");
+            };
+
             const onload = () => {
                 // OPERACIONES UNITARIAS
                 document.getElementById("cuadrado").addEventListener("click", sq);
@@ -261,6 +267,8 @@
                 if(modoLite){
                     document.getElementById("modoLiteTitle").innerHTML = "Modo Lite";
                 }
+
+                document.getElementById("lite").addEventListener("click", cambiaModo);
             }
 
             window.onload = onload ;
@@ -349,8 +357,9 @@
         <h2>Ejercicios Práctica 3 - Calculadora JS</h2>
 
         <h3>Interface en estado: <span id="modoLiteTitle"></span></h3>
+        <button id="lite">Modo Lite</button>
 
-        <div>
+        <div id="vistaFull">
             <button id="cuadrado"> x<sup>2</sup></button>
             <button id="factorial"> x! </button>
         </div>
