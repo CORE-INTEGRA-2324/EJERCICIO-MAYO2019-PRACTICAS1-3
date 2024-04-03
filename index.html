@@ -41,8 +41,22 @@
 
             };
 
+            const mostrarInfo = (quizzes) => {
+                document.getElementById("main").innerHTML = `
+                    <div>
+                        <h4>Autor: Toni</h4>
+                        <h4>Número de preguntas: ${quizzes.length}</h4>
+                    </div>
+                `;
+            };
+
             const onload = () => {
-                document.getElementById("mostrarQuizzes").addEventListener("click", index(initialQuizzes));
+                document.getElementById("mostrarQuizzes").addEventListener("click", () => {
+                    index(initialQuizzes);
+                });
+                document.getElementById("botonInfo").addEventListener("click", () => {
+                    mostrarInfo(initialQuizzes)
+                });
             };
 
             window.onload = onload;
@@ -52,7 +66,9 @@
         <h1>Ejercicio Quizzes:</h1>
         <div id="botones">
             <button id="mostrarQuizzes">Mostrar Quizzes</button>
+            <button id="botonInfo">Info</button>
         </div>
         <div id="main"></div>
+        </div>
     </body>
 </html>
