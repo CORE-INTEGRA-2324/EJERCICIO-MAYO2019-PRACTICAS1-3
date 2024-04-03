@@ -2,10 +2,52 @@
     <head>
         <title>Mayo 2019 - Pregunta 5</title>
         <meta charset="utf-8">
-        <script type="text/javascript"></script>
+        <script type="text/javascript">
+            const initialQuizzes = JSON.stringify([
+                {
+                    question: "Capital de Italia",
+                    answer: "Roma",
+                    id: 1
+                },
+                {
+                    question: "Capital de Francia",
+                    answer: "París",
+                    id: 2
+                },
+                {
+                    question: "Capital de Madagascar",
+                    answer: "Antananaribo",
+                    id: 3
+                }
+            ]);
+
+            // GENERACIÓN VISTA HTML:
+            const index = (quizzes) => {
+                let stringInicialAcumulador = "";
+                quizzes.reduce((stringAcumulado, quiz, id) => {
+                    stringAcumulado += `
+                        <div>
+                            <h2>Pregunta ${quiz.id}:</h2>
+                            <h3>${quiz.question}</h3>
+                            <h3>Respuesta: ${quiz.answer}</h3>
+                        </div>
+                    `;
+                }, stringInicialAcumulador);
+            }
+
+            const onload = () => {
+                document.getElementById("mostrarQuizzes").addEventListener("click", index);
+            };
+
+            window.onload;
+        </script>
     </head>
     <body>
         <h1>Ejercicio Quizzes:</h1>
         <div id="main"></div>
+
+        <div id="botones">
+            <button id="mostrarQuizzes">Mostrar Quizzes</button>
+        </div>
     </body>
 </html>
