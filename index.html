@@ -3,7 +3,7 @@
         <title>Mayo 2019 - Pregunta 5</title>
         <meta charset="utf-8">
         <script type="text/javascript">
-            const initialQuizzes = JSON.stringify([
+            const initialQuizzes = [
                 {
                     question: "Capital de Italia",
                     answer: "Roma",
@@ -19,35 +19,40 @@
                     answer: "Antananaribo",
                     id: 3
                 }
-            ]);
+            ];
 
             // GENERACIÓN VISTA HTML:
             const index = (quizzes) => {
                 let stringInicialAcumulador = "";
-                quizzes.reduce((stringAcumulado, quiz, id) => {
-                    stringAcumulado += `
-                        <div>
-                            <h2>Pregunta ${quiz.id}:</h2>
-                            <h3>${quiz.question}</h3>
-                            <h3>Respuesta: ${quiz.answer}</h3>
-                        </div>
-                    `;
-                }, stringInicialAcumulador);
-            }
 
-            const onload = () => {
-                document.getElementById("mostrarQuizzes").addEventListener("click", index);
+                let quizzesHTML = quizzes.reduce(
+                    (stringAcumulado, quiz, id) => {
+                        return stringAcumulado += `
+                            <div>
+                                <h2>Pregunta ${quiz.id}:</h2>
+                                <h3>${quiz.question}</h3>
+                                <h3>Respuesta: ${quiz.answer}</h3>
+                            </div>
+                        `;
+                    }, stringInicialAcumulador
+                );
+
+                document.getElementById("main").innerHTML = quizzesHTML;
+
             };
 
-            window.onload;
+            const onload = () => {
+                document.getElementById("mostrarQuizzes").addEventListener("click", index(initialQuizzes));
+            };
+
+            window.onload = onload;
         </script>
     </head>
     <body>
         <h1>Ejercicio Quizzes:</h1>
-        <div id="main"></div>
-
         <div id="botones">
             <button id="mostrarQuizzes">Mostrar Quizzes</button>
         </div>
+        <div id="main"></div>
     </body>
 </html>
