@@ -10,6 +10,8 @@
             let arrayValoresAcumulados = [];
             let modoLite = true;
 
+            let modoLiteDIRECTO = false;
+
             const getInputValue = () => {
                 return Number(document.getElementById("pantalla").value);
             };
@@ -250,6 +252,28 @@
                 */
             };
 
+
+            const changeModoDIRECTO = () => {
+                console.log("holi!");
+                modoLiteDIRECTO = !modoLiteDIRECTO;
+
+                let botonesFull = document.getElementById("vistaFullDIRECTO");
+                let indicadorModo = document.getElementById("modoActivo");
+
+                if (botonesFull.style.display == "none"){
+                    indicadorModo.innerHTML = "Lite";
+                    botonesFull.style.display = null; //mostrar botones
+                }
+
+                // si se muestra los botones (Modo Full)
+                else{ //botonesFull.style.display = "null" (no tiene propiedad display.none)
+                    indicadorModo.innerHTML = "Full";
+                    botonesFull.style.display = "none"; //ocultar
+                }
+
+
+            };
+
             const onload = () => {
                 // OPERACIONES UNITARIAS
                 document.getElementById("cuadrado").addEventListener("click", sq);
@@ -285,6 +309,9 @@
                 }
 
                 document.getElementById("lite").addEventListener("click", cambiaModo);
+
+                //DIRECTO Modo Lite
+                document.getElementById("botonLiteDIRECTO").addEventListener("click", changeModoDIRECTO);
             }
 
             window.onload = onload ;
@@ -396,10 +423,10 @@
             <h2>DIRECTO Ejercicios Práctica 3 - Calculadora JS</h2>
 
             <h3>Interface en estado: <span id="modoLiteTitle"></span></h3>
-            <button id="botonLiteDIRECTO">
-                Modo <span id="modoActivo">Lite</span></button>
-
-            <div id="vistaFull" style="border: 1px solid blue;">
+            <div>
+                <button id="botonLiteDIRECTO">Modo <span id="modoActivo">Lite</span></button>
+            </div>
+            <div id="vistaFullDIRECTO" style="border: 1px solid blue;">
                 <button id="cuadrado"> x<sup>2</sup></button>
                 <button id="factorial"> x! </button>
             </div>
