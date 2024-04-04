@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>Mayo 2019 - Pregunta 5</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
+        <script type="text/javascript">
+            const initialQuizzes = [
+                {
+                    question: "Capital de Italia",
+                    answer: "Roma",
+                    id: 1
+                },
+                {
+                    question: "Capital de Francia",
+                    answer: "París",
+                    id: 2
+                },
+                {
+                    question: "Capital de Madagascar",
+                    answer: "Antananaribo",
+                    id: 3
+                }
+            ];
+
+            // GENERACIÓN VISTA HTML:
+            const index = (quizzes) => {
+                let stringInicialAcumulador = "";
+
+                let quizzesHTML = quizzes.reduce(
+                    (stringAcumulado, quiz) => {
+                        return stringAcumulado += `
+                            <div style="background-color: lightyellow; border: 2px solid orange; margin: 8px;">
+                                <h2>Pregunta ${quiz.id}:</h2>
+                                <h3>${quiz.question}</h3>
+                                <h3>Respuesta: ${quiz.answer}</h3>
+                                <button class = "botonDuplicar" onclick="duplicarPregunta(${quiz.id})">Duplicar!</button>
+                            </div>
+                        `;
+                    }, stringInicialAcumulador
+                );
+
+                document.getElementById("main").innerHTML = quizzesHTML;
+
+            };
+
+            const mostrarInfo = (quizzes) => {
+                let stringInfo = `
+                    <h2>Autor: Toni INTEGRA</h2>
+                    <h3>Número de quizzes: ${quizzes.length}</h3>
+                `;
+
+                document.getElementById("main").innerHTML = stringInfo;
+            };
+
+            const duplicarPregunta = (idParametro) => {
+                // Buscar el quiz dentro del array de Quizzes con id == al parámetro
+                let preguntaADuplicar = initialQuizzes.find((quiz) => {
+                    return quiz.id === idParametro;
+                });
+
+                let preguntaADuplicarHTML = `
+                    <div style="background-color: lightyellow; border: 2px solid orange; margin: 8px;">
+                        <h2>Pregunta ${preguntaADuplicar.id}:</h2>
+                        <h3>${preguntaADuplicar.question}</h3>
+                        <h3>Respuesta: ${preguntaADuplicar.answer}</h3>
+                        <button class = "botonDuplicar" onclick="duplicarPregunta(${preguntaADuplicar.id})">Duplicar!</button>
+                    </div>
+                `;
+
+                document.getElementById("main").innerHTML += preguntaADuplicarHTML;
+            };
+
+            const onload = () => {
+                document.getElementById("mostrarQuizzes").addEventListener("click", () => {
+                    index(initialQuizzes)
+                });
+
+                document.getElementById("botonInfo").addEventListener("click", () => {
+                    mostrarInfo(initialQuizzes);
+                });
+            };
+
+            window.onload = onload;
+        </script>
+    </head>
+    <body>
+        <h1>Ejercicio Quizzes:</h1>
+        <div id="botones" style="background-color: lightgoldenrodyellow; border: 1px solid blue; padding: 8px;">
+            <button id="mostrarQuizzes">Mostrar Quizzes</button>
+            <button id="botonInfo">Info</button>
+        </div>
+        <div id="main">
+        </div>
+        </div>
+    </body>
+</html>
