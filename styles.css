@@ -1,0 +1,35 @@
+body {
+    background-color: gray;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.operaciones {
+    border: 3px solid lightskyblue;
+    padding: 8px;
+    width: fit-content;
+}
+
+.listadoOperaciones {
+    background-color: lightyellow;
+    border: 3px solid orange;
+    padding: 8px;
+    margin: 8px;
+    width: 500px;
+}
+
+.opcionales {
+    background-color: lightskyblue;
+    border: 3px solid olivedrab;
+    padding: 8px;
+    margin: 8px;
+    width: 800px;
+}
+
+#teclas{
+    display: flex;
+    border: 3px solid orange;
+    padding: 8px;
+    width: 80px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
